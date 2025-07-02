@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/sophon-explorer/',
+  base: '/Sofon/',
   server: {
     port: 3001,
     open: true
