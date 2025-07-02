@@ -1,7 +1,7 @@
 {
-  "name": "three-body-problem-quiz",
+  "name": "sophon-technology-explorer",
   "version": "1.0.0",
-  "description": "A quiz app based on The Three-Body Problem novel",
+  "description": "Interactive exploration of Sophon technology from The Three-Body Problem",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "framer-motion": "^10.16.4",
+    "lucide-react": "^0.263.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
