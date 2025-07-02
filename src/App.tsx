@@ -1,7 +1,7 @@
 // Force redeploy: remove unused imports
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Atom, Cpu, Eye, Zap, Brain, Globe, Shield, Target } from 'lucide-react';
+import { Atom, Cpu, Eye, Zap, Brain, Globe } from 'lucide-react';
 
 type Section = 'overview' | 'quantum' | 'sophons' | 'applications' | 'timeline' | 'demo';
 
