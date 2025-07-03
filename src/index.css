@@ -406,6 +406,104 @@ body {
   color: #00bfff;
 }
 
+/* Fairy Tales Styles */
+.fairy-tales-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.fairy-tale {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid rgba(0, 150, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.fairy-tale:hover {
+  transform: translateY(-3px);
+  border-color: #00ff88;
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
+}
+
+.fairy-tale h3 {
+  color: #00ff88;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.tale-content h4 {
+  color: #00bfff;
+  margin: 15px 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.tale-content p {
+  color: #b0b0b0;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.tale-symbolism {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+  border-left: 3px solid #00ff88;
+}
+
+.tale-symbolism h5 {
+  color: #00ff88;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.tale-symbolism ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.tale-symbolism li {
+  margin-bottom: 5px;
+  color: #b0b0b0;
+  font-size: 0.95rem;
+}
+
+.tale-symbolism strong {
+  color: #00bfff;
+}
+
+.fairy-tales-explanation {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 30px;
+  border: 1px solid rgba(0, 150, 255, 0.3);
+}
+
+.fairy-tales-explanation h3 {
+  color: #00ff88;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.fairy-tales-explanation ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.fairy-tales-explanation li {
+  margin-bottom: 8px;
+  color: #b0b0b0;
+}
+
+.fairy-tales-explanation strong {
+  color: #00bfff;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 15px;

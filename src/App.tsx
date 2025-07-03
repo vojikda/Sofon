@@ -2,9 +2,9 @@
 // Force redeploy: remove unused imports
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Atom, Cpu, Eye, Zap, Brain, Globe, Box } from 'lucide-react';
+import { Atom, Cpu, Eye, Zap, Brain, Globe, Box, BookOpen } from 'lucide-react';
 
-type Section = 'overview' | 'quantum' | 'sophons' | 'applications' | 'timeline' | 'demo' | 'dimensions';
+type Section = 'overview' | 'quantum' | 'sophons' | 'applications' | 'timeline' | 'demo' | 'dimensions' | 'fairytales';
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>('overview');
@@ -16,7 +16,8 @@ function App() {
     { id: 'applications', label: 'Applications', icon: Brain },
     { id: 'timeline', label: 'Timeline', icon: Eye },
     { id: 'demo', label: 'Interactive Demo', icon: Zap },
-    { id: 'dimensions', label: '10D Space', icon: Box }
+    { id: 'dimensions', label: '10D Space', icon: Box },
+    { id: 'fairytales', label: 'Fairy Tales for Trisolaris', icon: BookOpen }
   ];
 
   const SophonIllustration = () => (
@@ -582,6 +583,140 @@ function App() {
     </motion.div>
   );
 
+  const renderFairyTales = () => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="section-content">
+        <p>
+          The three fairy tales told to Trisolaris represent humanity's attempt to communicate 
+          complex concepts through allegory and metaphor. These stories contain hidden meanings 
+          about human civilization, technology, and the nature of the universe itself.
+        </p>
+        
+        <div className="fairy-tales-container">
+          <div className="fairy-tale">
+            <h3>🌙 The Tale of the Princess and the Prince</h3>
+            <div className="tale-content">
+              <h4>The Story</h4>
+              <p>
+                A princess lives in a castle with no doors or windows, communicating with the outside 
+                world only through a mirror. A prince from another kingdom falls in love with her 
+                reflection and sends her gifts through the mirror. The princess, unable to leave her 
+                castle, sends her own reflection back to the prince.
+              </p>
+              
+              <h4>The Hidden Meaning</h4>
+              <p>
+                This tale represents the fundamental problem of communication between civilizations 
+                separated by vast distances. The "castle" symbolizes a planet, the "mirror" represents 
+                electromagnetic communication, and the "reflections" are the messages sent between 
+                worlds. The story illustrates how civilizations can only know each other through 
+                their "reflections" - the information they choose to send.
+              </p>
+              
+              <div className="tale-symbolism">
+                <h5>Key Symbols:</h5>
+                <ul>
+                  <li><strong>Castle:</strong> A planet or civilization</li>
+                  <li><strong>Mirror:</strong> Communication technology</li>
+                  <li><strong>Reflections:</strong> Messages and information</li>
+                  <li><strong>No doors/windows:</strong> Physical isolation in space</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div className="fairy-tale">
+            <h3>🎭 The Tale of the Fisherman and the Bottle</h3>
+            <div className="tale-content">
+              <h4>The Story</h4>
+              <p>
+                A fisherman finds a bottle containing a genie who offers to grant three wishes. 
+                The genie warns that each wish will come with a terrible price. The fisherman 
+                wishes for wealth, which brings him enemies. He wishes for power, which brings 
+                him fear. Finally, he wishes to return to his simple life, but the genie reveals 
+                that the bottle itself was the trap - once opened, it can never be closed.
+              </p>
+              
+              <h4>The Hidden Meaning</h4>
+              <p>
+                This tale represents the dangers of technological advancement and the concept of 
+                the "technological trap." Once a civilization begins to develop advanced technology, 
+                it cannot go back to a simpler state. The "genie" represents scientific knowledge, 
+                and the "wishes" are technological breakthroughs that come with unintended consequences. 
+                The story warns about the irreversible nature of technological progress.
+              </p>
+              
+              <div className="tale-symbolism">
+                <h5>Key Symbols:</h5>
+                <ul>
+                  <li><strong>Genie:</strong> Scientific knowledge and technology</li>
+                  <li><strong>Three wishes:</strong> Major technological breakthroughs</li>
+                  <li><strong>Terrible price:</strong> Unintended consequences of technology</li>
+                  <li><strong>Unclosable bottle:</strong> Irreversible technological advancement</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div className="fairy-tale">
+            <h3>🌌 The Tale of the Three Painters</h3>
+            <div className="tale-content">
+              <h4>The Story</h4>
+              <p>
+                Three painters are commissioned to paint a wall. The first painter paints a beautiful 
+                landscape, but it's destroyed by rain. The second painter paints a waterproof mural, 
+                but it's covered by the third painter's work. The third painter creates a painting 
+                that changes with the weather and time, becoming more beautiful with each change. 
+                The wall itself becomes a living work of art.
+              </p>
+              
+              <h4>The Hidden Meaning</h4>
+              <p>
+                This tale represents the evolution of civilizations and the concept of the "Dark Forest" 
+                theory. The first painter represents early civilizations that are vulnerable to cosmic 
+                threats. The second painter represents civilizations that try to hide or protect themselves. 
+                The third painter represents advanced civilizations that adapt and evolve, becoming 
+                part of the cosmic ecosystem itself.
+              </p>
+              
+              <div className="tale-symbolism">
+                <h5>Key Symbols:</h5>
+                <ul>
+                  <li><strong>Wall:</strong> The universe or cosmic environment</li>
+                  <li><strong>Rain:</strong> Cosmic threats and natural disasters</li>
+                  <li><strong>Waterproof mural:</strong> Defensive strategies and hiding</li>
+                  <li><strong>Living painting:</strong> Adaptive and evolving civilizations</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="fairy-tales-explanation">
+          <h3>The Deeper Significance</h3>
+          <p>
+            These fairy tales serve multiple purposes in the context of the Three-Body Problem:
+          </p>
+          <ul>
+            <li><strong>Communication:</strong> They attempt to explain human concepts to an alien civilization</li>
+            <li><strong>Warning:</strong> They convey the dangers and responsibilities of advanced technology</li>
+            <li><strong>Philosophy:</strong> They express humanity's understanding of the universe and civilization</li>
+            <li><strong>Strategy:</strong> They may contain hidden strategies or information for humanity's survival</li>
+          </ul>
+          <p>
+            The Trisolarans, despite their advanced technology, may not fully understand the allegorical 
+            nature of these stories, making them both a form of communication and a potential weapon 
+            in the cosmic game of survival.
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+
   const renderContent = () => {
     switch (activeSection) {
       case 'overview':
@@ -598,6 +733,8 @@ function App() {
         return renderDemo();
       case 'dimensions':
         return renderDimensions();
+      case 'fairytales':
+        return renderFairyTales();
       default:
         return renderOverview();
     }
