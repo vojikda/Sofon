@@ -2,7 +2,7 @@
 // Force redeploy: remove unused imports
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Atom, Cpu, Eye, Zap, Brain, Globe, Cube } from 'lucide-react';
+import { Atom, Cpu, Eye, Zap, Brain, Globe, Box } from 'lucide-react';
 
 type Section = 'overview' | 'quantum' | 'sophons' | 'applications' | 'timeline' | 'demo' | 'dimensions';
 
@@ -16,7 +16,7 @@ function App() {
     { id: 'applications', label: 'Applications', icon: Brain },
     { id: 'timeline', label: 'Timeline', icon: Eye },
     { id: 'demo', label: 'Interactive Demo', icon: Zap },
-    { id: 'dimensions', label: '10D Space', icon: Cube }
+    { id: 'dimensions', label: '10D Space', icon: Box }
   ];
 
   const SophonIllustration = () => (
