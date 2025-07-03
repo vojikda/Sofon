@@ -1,9 +1,10 @@
+// Redeploy trigger: trivial comment to force GitHub Actions
 // Force redeploy: remove unused imports
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Atom, Cpu, Eye, Zap, Brain, Globe } from 'lucide-react';
+import { Atom, Cpu, Eye, Zap, Brain, Globe, Cube } from 'lucide-react';
 
-type Section = 'overview' | 'quantum' | 'sophons' | 'applications' | 'timeline' | 'demo';
+type Section = 'overview' | 'quantum' | 'sophons' | 'applications' | 'timeline' | 'demo' | 'dimensions';
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>('overview');
@@ -14,8 +15,116 @@ function App() {
     { id: 'sophons', label: 'Sophon Technology', icon: Atom },
     { id: 'applications', label: 'Applications', icon: Brain },
     { id: 'timeline', label: 'Timeline', icon: Eye },
-    { id: 'demo', label: 'Interactive Demo', icon: Zap }
+    { id: 'demo', label: 'Interactive Demo', icon: Zap },
+    { id: 'dimensions', label: '10D Space', icon: Cube }
   ];
+
+  const SophonIllustration = () => (
+    <div className="sophon-illustration">
+      <svg width="300" height="300" viewBox="0 0 300 300" className="sophon-svg">
+        {/* Outer quantum field */}
+        <defs>
+          <radialGradient id="quantumField" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#00ff88" stopOpacity="0.8"/>
+            <stop offset="70%" stopColor="#00bfff" stopOpacity="0.4"/>
+            <stop offset="100%" stopColor="#ff6b6b" stopOpacity="0.1"/>
+          </radialGradient>
+          <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#ffffff"/>
+            <stop offset="50%" stopColor="#00ff88"/>
+            <stop offset="100%" stopColor="#00bfff"/>
+          </radialGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge> 
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        {/* Quantum field background */}
+        <circle cx="150" cy="150" r="140" fill="url(#quantumField)" opacity="0.6">
+          <animate attributeName="r" values="140;150;140" dur="4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.6;0.8;0.6" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        
+        {/* Orbiting quantum particles */}
+        {[...Array(8)].map((_, i) => (
+          <g key={i}>
+            <circle
+              cx={150 + 80 * Math.cos(i * Math.PI / 4)}
+              cy={150 + 80 * Math.sin(i * Math.PI / 4)}
+              r="3"
+              fill="#00ff88"
+              filter="url(#glow)"
+            >
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                values={`0 150 150; 360 150 150`}
+                dur={`${3 + i * 0.5}s`}
+                repeatCount="indefinite"
+              />
+            </circle>
+          </g>
+        ))}
+        
+        {/* Sophon core - unfolded proton */}
+        <g transform="translate(150, 150)">
+          {/* Central core */}
+          <circle cx="0" cy="0" r="20" fill="url(#coreGradient)" filter="url(#glow)">
+            <animate attributeName="r" values="20;25;20" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          
+          {/* Quantum computing circuits */}
+          <path
+            d="M-15 -15 L15 -15 L15 15 L-15 15 Z"
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth="1"
+            opacity="0.8"
+          >
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.5s" repeatCount="indefinite"/>
+          </path>
+          
+          {/* Data streams */}
+          {[...Array(6)].map((_, i) => (
+            <line
+              key={i}
+              x1={-30 * Math.cos(i * Math.PI / 3)}
+              y1={-30 * Math.sin(i * Math.PI / 3)}
+              x2={-50 * Math.cos(i * Math.PI / 3)}
+              y2={-50 * Math.sin(i * Math.PI / 3)}
+              stroke="#00ff88"
+              strokeWidth="1"
+              opacity="0.6"
+            >
+              <animate attributeName="opacity" values="0.6;1;0.6" dur={`${1 + i * 0.2}s`} repeatCount="indefinite"/>
+            </line>
+          ))}
+        </g>
+        
+        {/* Energy waves */}
+        {[...Array(3)].map((_, i) => (
+          <circle
+            key={i}
+            cx="150"
+            cy="150"
+            r={60 + i * 20}
+            fill="none"
+            stroke="#00bfff"
+            strokeWidth="1"
+            opacity="0.3"
+          >
+            <animate attributeName="r" values={`${60 + i * 20};${80 + i * 20};${60 + i * 20}`} dur={`${2 + i}s`} repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.3;0.6;0.3" dur={`${1.5 + i * 0.5}s`} repeatCount="indefinite"/>
+          </circle>
+        ))}
+      </svg>
+      <p className="illustration-caption">Sophon: A quantum computer embedded in an unfolded proton</p>
+    </div>
+  );
 
   const renderOverview = () => (
     <motion.div
@@ -24,11 +133,16 @@ function App() {
       transition={{ duration: 0.5 }}
     >
       <div className="section-content">
-        <p>
-          Sophon technology represents the pinnacle of Trisolaran scientific achievement, 
-          combining quantum computing, subatomic manipulation, and artificial intelligence 
-          to create the most advanced surveillance and computational system in the universe.
-        </p>
+        <div className="overview-header">
+          <div className="overview-text">
+            <p>
+              Sophon technology represents the pinnacle of Trisolaran scientific achievement, 
+              combining quantum computing, subatomic manipulation, and artificial intelligence 
+              to create the most advanced surveillance and computational system in the universe.
+            </p>
+          </div>
+          <SophonIllustration />
+        </div>
         
         <div className="tech-grid">
           <div className="tech-card">
@@ -348,6 +462,126 @@ function App() {
     </motion.div>
   );
 
+  const renderDimensions = () => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="section-content">
+        <p>
+          The concept of 10-dimensional space is fundamental to understanding sophon technology 
+          and the advanced physics that Trisolarans have mastered. While humans perceive only 
+          three spatial dimensions, higher-dimensional spaces contain possibilities that seem 
+          like magic to our limited perspective.
+        </p>
+        
+        <div className="dimensions-visualization">
+          <h3>Visualizing 10-Dimensional Space</h3>
+          <div className="dimension-grid">
+            <div className="dimension-card">
+              <h4>1D - Line</h4>
+              <div className="dimension-visual">
+                <div className="line-1d"></div>
+              </div>
+              <p>Forward and backward only</p>
+            </div>
+            
+            <div className="dimension-card">
+              <h4>2D - Plane</h4>
+              <div className="dimension-visual">
+                <div className="plane-2d"></div>
+              </div>
+              <p>Left, right, forward, backward</p>
+            </div>
+            
+            <div className="dimension-card">
+              <h4>3D - Space</h4>
+              <div className="dimension-visual">
+                <div className="cube-3d"></div>
+              </div>
+              <p>Up, down, left, right, forward, backward</p>
+            </div>
+            
+            <div className="dimension-card">
+              <h4>4D - Time</h4>
+              <div className="dimension-visual">
+                <div className="time-4d"></div>
+              </div>
+              <p>Past, present, future + 3D space</p>
+            </div>
+            
+            <div className="dimension-card">
+              <h4>5D+ - Higher Dimensions</h4>
+              <div className="dimension-visual">
+                <div className="higher-dimensions"></div>
+              </div>
+              <p>Compactified dimensions, parallel universes</p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="tech-grid">
+          <div className="tech-card">
+            <h3>🌌 Compactified Dimensions</h3>
+            <p>
+              In string theory, the extra 6 dimensions are "curled up" or compactified 
+              at scales smaller than atoms. Sophons can access these dimensions, 
+              allowing them to bypass normal spatial constraints.
+            </p>
+          </div>
+          
+          <div className="tech-card">
+            <h3>🔗 Quantum Entanglement Across Dimensions</h3>
+            <p>
+              Sophons use higher-dimensional connections to maintain instant 
+              communication across vast distances, appearing to violate 
+              the speed of light from our 3D perspective.
+            </p>
+          </div>
+          
+          <div className="tech-card">
+            <h3>🎭 Reality Manipulation</h3>
+            <p>
+              By accessing higher dimensions, sophons can create impossible 
+              phenomena in our 3D world - objects appearing and disappearing, 
+              particles existing in multiple places simultaneously.
+            </p>
+          </div>
+          
+          <div className="tech-card">
+            <h3>🧠 Human Perception Limits</h3>
+            <p>
+              Our brains evolved to process only 3 spatial dimensions. 
+              Higher-dimensional phenomena appear as "magic" or impossible 
+              physics, just as a 2D being would see 3D objects as 
+              incomprehensible.
+            </p>
+          </div>
+        </div>
+        
+        <div className="dimension-explanation">
+          <h3>How 10D Space Appears to Humans</h3>
+          <p>
+            Imagine you're a 2D being living on a piece of paper. A 3D object passing through 
+            your world would appear as a shape that changes size and appears/disappears 
+            mysteriously. Similarly, 10D phenomena in our 3D world appear as:
+          </p>
+          <ul>
+            <li><strong>Quantum tunneling:</strong> Particles appearing to pass through solid barriers</li>
+            <li><strong>Spooky action at a distance:</strong> Instant correlation between separated particles</li>
+            <li><strong>Wave-particle duality:</strong> Objects existing as both waves and particles</li>
+            <li><strong>Virtual particles:</strong> Matter appearing from "nothing" in quantum fluctuations</li>
+          </ul>
+          <p>
+            Sophons exploit these higher-dimensional connections to perform their surveillance 
+            and manipulation tasks, making them appear as supernatural entities to human observers.
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+
   const renderContent = () => {
     switch (activeSection) {
       case 'overview':
@@ -362,6 +596,8 @@ function App() {
         return renderTimeline();
       case 'demo':
         return renderDemo();
+      case 'dimensions':
+        return renderDimensions();
       default:
         return renderOverview();
     }
@@ -418,4 +654,4 @@ function App() {
   );
 }
 
-export default App; // Updated: Wed Jul  2 08:59:47 CEST 2025
+export default App; 
